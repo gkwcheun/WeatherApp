@@ -3,7 +3,7 @@ let onDisplay = [];
 async function getWeatherData(city) {
   const apiKey = "b49d81bfc5731de9364e668e91afe55b";
   const units = "metric";
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -23,7 +23,7 @@ function processData(data) {
 
 async function getGif(description) {
   const apiKey = "Zb9f89tOJskNshNLi8D6NYwKdsGGoLuM";
-  let url = `http://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${description}`;
+  let url = `https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${description}`;
   try {
     const response = await fetch(url, { mode: "cors" });
     const gifData = await response.json();
@@ -64,7 +64,7 @@ async function displayData(e) {
 
 function createWeatherCard(data, gifUrl) {
   let cardContainer = document.querySelector(".cards-container");
-  let imgUrl = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+  let imgUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
 
   let newCard = document.createElement("div");
   newCard.classList.add("weather-card");
